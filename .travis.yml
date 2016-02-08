@@ -26,4 +26,10 @@ script:
   - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
 
 notifications:
+  email: false
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
+  irc:
+    channels:
+      - secure: "fBqZnUZP6sa0qv+3VQw8yBYCBYGgifVcNdWqWZb0zk5hLX/nvSj2W2AeKegKTW8uOla/PKv9hmTWCwQieglfGEF0ArfEDxPcR+Y3QcAdTWiMi4+emPgNE3yUzs9RUxY0WoVsbl/8V/sl3ZudFumXWBAbHr9mCXGfmX7v8/P6vEtCzXXLE4vgErgjSk/cdvITufExiomJcUqW8CJo8rbLJt3kS4mFTSxO3EAGox5ZUSGAZPIGVHalPJnngifmGrdxcLuBkZ/+FyM2SRV7ayU2UYDVsHOZxeemNwpk+zilYI4U32QRbt9AI0Gid9KEcUKnQP2RWm9Q7zLM2jbaRE9Z6rrJvpVftL2g3l9PL5H0MSYNFsoWBJNt9TU36o8ExOkTJS6bj148P6vcIhk0IKQXNdcJbpOPsUzUMaRrs2RUeFDjYx4w/AtlURz6u8gVDtl9wnF+64GqmbX8HKfd56GLO+Odcnr4X6y3wJuYbfuuohWiUjATjRZlc0e3lYV86/8vON3D7Nl/F+T8Wa9ahXq1oqq9KAGvrJqC0nOhNCqSBb8Qag88yEd40AQWBQkNrzef+FblDWnqSqRAWEt9GISToj9J8uQNHSPJctqvXqOk16RZl7UAaDpyi2D0ECWH4DJV10pV1fHIIqLLU3vBCNMeaI9u8leUGxfQ7yCCEszHx9c="
+    on_success: "change"
+    on_failure: "change"
