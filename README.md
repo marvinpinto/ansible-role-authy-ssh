@@ -1,38 +1,40 @@
-Role Name
+authy-ssh
 =========
 
-A brief description of the role goes here.
+[![Build Status](https://img.shields.io/travis/marvinpinto/ansible-role-authy-ssh/master.svg?style=flat-square)](https://travis-ci.org/marvinpinto/ansible-role-authy-ssh)
+[![Ansible Galaxy](https://img.shields.io/badge/ansible--galaxy-authy--ssh-blue.svg?style=flat-square)](https://galaxy.ansible.com/marvinpinto/authy-ssh)
+[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.txt)
+
+Ansible role to install and configure [Authy 2FA for
+SSH](https://github.com/authy/authy-ssh) logins.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+This role has been tested on Ubuntu 14.04 and will likely only work on an
+Ubuntu-like system. You will need an [Authy API
+key](https://www.authy.com/signup) as well as a already-configured 2FA user.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+```yaml
+---
+- tbd: "work in progress"
+```
 
-Dependencies
-------------
+Examples
+--------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+Install this module from Ansible Galaxy into the './roles' directory:
+```bash
+ansible-galaxy install marvinpinto.authy-ssh -p ./roles
+```
 
-Example Playbook
-----------------
-
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
-
-License
--------
-
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Use it in a playbook as follows:
+```yaml
+- hosts: '127.0.0.1'
+  roles:
+    - role: 'marvinpinto.authy-ssh'
+      sudo: true
+```
