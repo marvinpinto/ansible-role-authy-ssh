@@ -1,0 +1,6 @@
+banner=Good job! You've securely logged in with Authy.
+api_key={{ authy_api_key }}
+default_verify_action={{ authy_default_verify_action }}
+{% for user in authy_enrolled_users %}
+user={{ user['name'] }}:{{ user['authy_id'] }}
+{% endfor %}

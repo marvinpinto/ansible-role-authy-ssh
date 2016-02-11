@@ -1,2 +1,13 @@
 ---
-# defaults file for authy-ssh
+# Your Authy API Key
+authy_api_key: 'sekritApIk3y'
+
+# Default action when api.authy.com cannot be contacted:
+# disable - Disable two factor authentication until api.authy.com is back
+# enforce - Don't allow logins until api.authy.com is back
+authy_default_verify_action: 'disable'
+
+# Local Authy 2FA users
+# name - Local linux username
+# authy_id - Corresponding Authy ID
+authy_enrolled_users: []
