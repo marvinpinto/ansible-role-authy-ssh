@@ -1,2 +1,34 @@
 ---
-# tasks file for authy-ssh
+- name: 'Put the authy-ssh file in place'
+  sudo: true
+  get_url:
+    url: 'https://raw.githubusercontent.com/authy/authy-ssh/master/authy-ssh'
+    dest: "/usr/local/bin/authy-ssh"
+    mode: '0755'
+  notify: 'authy-restart-ssh'
+
+- name: 'Put the authy-ssh.conf file in place'
+  sudo: true
+  template:
+    src: "authy-ssh.conf.j2"
+    dest: "/usr/local/bin/authy-ssh.conf"
+    mode: '0444'
+  notify: 'authy-restart-ssh'
+
+- name: 'Ensure that Authy runs on every SSH login attempt'
+  sudo: true
+  lineinfile:
+    line: 'ForceCommand /usr/local/bin/authy-ssh login'
+    dest: '/etc/ssh/sshd_config'
+    state: present
+  notify: 'authy-restart-ssh'
+
+- name: 'Allow the AUTHY_TOKEN env variable to be passed in via ssh'
+  sudo: true
+  lineinfile:
+    line: 'AcceptEnv AUTHY_TOKEN'
+    dest: '/etc/ssh/sshd_config'
+    state: present
+  notify: 'authy-restart-ssh'
+
+- meta: flush_handlers

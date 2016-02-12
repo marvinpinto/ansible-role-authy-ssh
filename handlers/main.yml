@@ -1,2 +1,6 @@
 ---
-# handlers file for authy-ssh
+- name: 'authy-restart-ssh'
+  sudo: yes
+  service:
+    name: 'ssh'
+    state: 'restarted'

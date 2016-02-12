@@ -13,14 +13,28 @@ Requirements
 
 This role has been tested on Ubuntu 14.04 and will likely only work on an
 Ubuntu-like system. You will need an [Authy API
-key](https://www.authy.com/signup) as well as a already-configured 2FA user.
+key](https://www.authy.com/signup) as well as an already-configured 2FA user.
 
 Role Variables
 --------------
 
 ```yaml
----
-- tbd: "work in progress"
+# Your Authy API Key
+authy_api_key: 'sekritApIk3y'
+
+# Default action when api.authy.com cannot be contacted:
+# disable - Disable two factor authentication until api.authy.com is back
+# enforce - Don't allow logins until api.authy.com is back
+authy_default_verify_action: 'disable'
+
+# Local Authy 2FA users
+# name - Local linux username
+# authy_id - Corresponding Authy ID
+authy_enrolled_users:
+  - name: 'mary'
+    authy_id: '123456'
+  - name: 'linda'
+    authy_id: '789012'
 ```
 
 Examples
